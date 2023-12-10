@@ -20,7 +20,7 @@ Then:
   ```
 Install composer:
 ```bash
-  composer Install
+  composer install
   ```
 To build the project using Docker, use the following command:
 ```bash
@@ -34,3 +34,74 @@ Migrate Entity:
 
 
 
+
+## API Reference
+
+#### Create
+
+Endpoint: `http://localhost:8080/exchange/values`<br>
+HTTP Method: `POST`
+
+Request Body:
+```json
+{
+  "first": int,
+  "second": int
+}
+```
+
+Response:
+```json
+
+{
+    "id": int,
+    "firstOut": int,
+    "secondOut": int,
+    "updateAt": date
+}
+
+```
+
+#### Get
+
+Endpoint: `http://localhost:8080/exchange/history`<br>
+HTTP Method: `POST`
+
+Response:
+```json
+
+[
+    {
+        "id": int,
+        "firstIn": int,
+        "secondIn": int,
+        "firstOut": int,
+        "secondOut": int,
+        "createdAt": date,
+        "updateAt": date
+    }
+]
+
+```
+
+#### Get with pagging and sort
+
+Example Endpoint: `http://localhost:8080/exchange/history?page=1&perPage=10&sortColumn=updateAt&sortOrder=desc`<br>
+HTTP Method: `POST`
+
+Response:
+```json
+
+[
+    {
+        "id": int,
+        "firstIn": int,
+        "secondIn": int,
+        "firstOut": int,
+        "secondOut": int,
+        "createdAt": date,
+        "updateAt": date
+    }
+]
+
+```

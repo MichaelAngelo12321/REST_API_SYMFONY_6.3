@@ -59,12 +59,12 @@ class ExchangeValueController extends AbstractController
     public function getAllHistoryRecords(Request $request): JsonResponse
     {
         // Pagination
-        $page = $request->query->getInt('page');
-        $perPage = $request->query->getInt('perPage');
+        $page = $request->query->getInt('page', '1');
+        $perPage = $request->query->getInt('perPage', '10');
 
         // Sorting
-        $sortColumn = $request->query->get('sortColumn');
-        $sortOrder = $request->query->get('sortOrder');
+        $sortColumn = $request->query->get('sortColumn', 'updateAt');
+        $sortOrder = $request->query->get('sortOrder', 'desc');
 
         // Sorting validation
         if (!in_array($sortColumn, ['createdAt', 'updateAt', 'firstOut', 'secondOut', 'firstIn', 'secondIn'])) {

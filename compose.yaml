@@ -1,6 +1,18 @@
 version: '3'
 
 services:
+  web:
+    container_name: api-web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www
+    networks:
+      - api-network
+
   mysql:
     image: 'mysql:latest'
     ports:

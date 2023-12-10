@@ -54,4 +54,28 @@ class ExchangeValueController extends AbstractController
 
         return new JsonResponse($response, Response::HTTP_OK);
     }
+
+    #[Route("/exchange/history", methods: ["GET", "POST"])]
+    public function getAllHistoryRecords(): JsonResponse
+    {
+        // Get all records from the History table
+        $historyRecords = $this->entityManager->getRepository(History::class)->findAll();
+
+        // Prepare the response data
+        $response = [];
+
+        foreach ($historyRecords as $record) {
+            $response[] = [
+                'firstIn' => $record->getFirstIn(),
+                'secondIn' => $record->getSecondIn(),
+                'firstOut' => $record->getFirstOut(),
+                'secondOut' => $record->getSecondOut(),
+                'createdAt' => $record->getCreatedAt()->format('Y-m-d H:i:s'),
+                'updateAt' => $record->getUpdateAt()->format('Y-m-d H:i:s'),
+            ];
+        }
+
+        // Return JSON response with all history records
+        return new JsonResponse($response, Response::HTTP_OK);
+    }
 }

@@ -58,15 +58,15 @@ class ExchangeValueController extends AbstractController
     #[Route("/exchange/history", methods: ["GET", "POST"])]
     public function getAllHistoryRecords(Request $request): JsonResponse
     {
-        // Paginacja
+        // Pagination
         $page = $request->query->getInt('page');
         $perPage = $request->query->getInt('perPage');
 
-        // Sortowanie
+        // Sorting
         $sortColumn = $request->query->get('sortColumn');
         $sortOrder = $request->query->get('sortOrder');
 
-        // Walidacja sortowania
+        // Sorting validation
         if (!in_array($sortColumn, ['createdAt', 'updateAt', 'firstOut', 'secondOut', 'firstIn', 'secondIn'])) {
             return new JsonResponse(['error' => 'Invalid sort column.'], Response::HTTP_BAD_REQUEST);
         }
@@ -75,11 +75,11 @@ class ExchangeValueController extends AbstractController
             return new JsonResponse(['error' => 'Invalid sort order.'], Response::HTTP_BAD_REQUEST);
         }
 
-        // Pobierz dane z bazy z uwzględnieniem paginacji i sortowania
+        // Fetch data from the database with pagination and sorting
         $historyRecords = $this->entityManager->getRepository(History::class)
             ->findBy([], [$sortColumn => $sortOrder], $perPage, ($page - 1) * $perPage);
 
-        // Przygotuj dane do odpowiedzi
+        // Prepare data for the response
         $response = [];
 
         foreach ($historyRecords as $record) {

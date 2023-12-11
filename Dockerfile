@@ -14,6 +14,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 COPY ./docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
-CMD apachectl -D FOREGROUND
-
 ENTRYPOINT ["docker/entrypoint.sh"]

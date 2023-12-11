@@ -6,4 +6,4 @@ fi
 
 php bin/console d:m:m
 
-docker-php-entrypoint apache2-foreground
+#exec docker-php-entrypoint apache2-foreground

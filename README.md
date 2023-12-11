@@ -8,16 +8,16 @@ To run the project, you need to have Docker installed.
 ## Get Project
 To download the project, use the following command:
 ```bash
-  git clone https://github.com/MichaelAngelo12321/Rest_Api_Symfony_6.3.git
+git clone https://github.com/MichaelAngelo12321/Rest_Api_Symfony_6.3.git
 ```
 Then:
 
 ```bash
-  cd .\Rest_Api_Symfony_6.3\
+cd .\Rest_Api_Symfony_6.3\
   ```
 To build the project using Docker, use the following command:
 ```bash
-  docker-compose up --build
+docker-compose up --build
 ```
 Setting up Docker typically takes up to 10 minutes!
 

@@ -15,24 +15,16 @@ Then:
 ```bash
 cd .\Rest_Api_Symfony_6.3\
   ```
+Then, navigate to the docker/entrypoint.sh file and uncomment the last line:
+```bash
+#exec docker-php-entrypoint apache2-foreground
+```
+
 To build the project using Docker, use the following command:
 ```bash
 docker-compose up --build
 ```
 Setting up Docker typically takes up to 10 minutes!
-
-If the container has been built, shut it down by pressing:
-```bash
-ctrl+c
-```
-Then, navigate to the docker/entrypoint.sh file and uncomment the last line:
-```bash
-#exec docker-php-entrypoint apache2-foreground
-```
-Once you've done that, restart the container using the command:
-```bash
-docker-compose up -d
-```
 
 ## API Reference
 

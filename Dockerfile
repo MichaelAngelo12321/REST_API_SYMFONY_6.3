@@ -8,8 +8,12 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN chmod +x /usr/local/bin/install-php-extensions
 RUN install-php-extensions pdo_mysql intl opcache zip
 
+COPY . .
+
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 COPY ./docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 CMD apachectl -D FOREGROUND
+
+ENTRYPOINT ["docker/entrypoint.sh"]

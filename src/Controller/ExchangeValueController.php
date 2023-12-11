@@ -47,6 +47,7 @@ class ExchangeValueController extends AbstractController
 
         // Return JSON response
         $response = [
+            'id' => $history->getId(),
             'firstOut' => $history->getFirstOut(),
             'secondOut' => $history->getSecondOut(),
             'updateAt' => $history->getUpdateAt()->format('Y-m-d H:i:s'),
@@ -84,6 +85,7 @@ class ExchangeValueController extends AbstractController
 
         foreach ($historyRecords as $record) {
             $response[] = [
+                'id' => $record->getId(),
                 'firstIn' => $record->getFirstIn(),
                 'secondIn' => $record->getSecondIn(),
                 'firstOut' => $record->getFirstOut(),

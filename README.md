@@ -15,7 +15,7 @@ Then:
 ```bash
 cd .\Rest_Api_Symfony_6.3\
   ```
-Then, navigate to the docker/entrypoint.sh file and uncomment the last line:
+Then, navigate to the docker/entrypoint.sh file and uncomment the last line and save change:
 ```bash
 #exec docker-php-entrypoint apache2-foreground
 ```

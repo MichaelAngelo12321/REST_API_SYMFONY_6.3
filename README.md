@@ -5,9 +5,6 @@ The API allows for adding two numbers to the database, then it changes their ord
 
 To run the project, you need to have Docker installed.
 
-
-
-
 ## Get Project
 To download the project, use the following command:
 ```bash
@@ -18,28 +15,17 @@ Then:
 ```bash
   cd .\Rest_Api_Symfony_6.3\
   ```
-Install composer:
-```bash
-  composer install
-  ```
 To build the project using Docker, use the following command:
 ```bash
   docker-compose up --build
 ```
-Migrate Entity:
-
-```bash
-  php bin/console doctrine:migrations:migrate
-```
-
-
-
+Setting up Docker typically takes up to 10 minutes!
 
 ## API Reference
 
 #### Create
 
-Endpoint: `http://localhost:8080/exchange/values`<br>
+Endpoint: `http://localhost:8080/exchange/values` </br>
 HTTP Method: `POST`
 
 Request Body:
@@ -64,7 +50,7 @@ Response:
 
 #### Get
 
-Endpoint: `http://localhost:8080/exchange/history`<br>
+Endpoint: `http://localhost:8080/exchange/history` </br>
 HTTP Method: `POST`
 
 Response:
@@ -86,7 +72,7 @@ Response:
 
 #### Get with pagging and sort
 
-Example Endpoint: `http://localhost:8080/exchange/history?page=1&perPage=10&sortColumn=updateAt&sortOrder=desc`<br>
+Example Endpoint: `http://localhost:8080/exchange/history?page=1&perPage=10&sortColumn=updateAt&sortOrder=desc` </br>
 HTTP Method: `POST`
 
 Response:
